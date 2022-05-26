@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LessonController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/lessons/{lesson}', [LessonController::class, 'show']);
+//以下ルーティングの記載方法がlaravel8ではエラー
+//Route::get('/lessons/{lesson}', 'LessonController@show')->name('lessons.show');
